@@ -11,3 +11,72 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.clear {
+  clear: both;
+}
+
+.header {
+  background-color: #3f3f3f;
+  padding: 10px 30px;
+}
+
+.header a {
+  color: #fff;
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.header ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.header ul li {
+  display: inline-block;
+  width: 80px;
+}
+
+.header ul.navBlock {
+  float: left;
+}
+
+.header ul.userBlock {
+  float: right;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 20px auto;
+}
+
+.formBlock {
+  margin: 50px auto;
+  border-radius: 7px;
+  border: 1px solid #dddddd;
+  padding: 30px;
+  max-width: 300px;
+  background-color: #585858;
+  color: #fff;
+}
+
+.formBlock h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.formBlock button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(14, 157, 14);
+  color: #fff;
+}
+
+.formBlock button:hover {
+  background-color: rgb(20, 208, 20);
+  cursor: pointer;
+}

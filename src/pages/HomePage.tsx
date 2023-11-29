@@ -32,6 +32,15 @@ const HomePage: React.FC = () => {
             return (
               <div key={post.id}>
                 <h2>{post.title}</h2>
+                {post.imageUrl ? (
+                  <div>
+                    <img
+                      src={post.imageUrl}
+                      alt={post.title}
+                      style={{ width: "100px" }}
+                    />
+                  </div>
+                ) : null}
                 <Link to={`/article/${post.id}`}>Read More</Link>
               </div>
             );

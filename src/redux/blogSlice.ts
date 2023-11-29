@@ -9,6 +9,7 @@ import {
 } from "@firebase/firestore";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { db } from "../firebase/firebaseConfig";
+import { uploadImage } from "../lib";
 
 export const fetchPosts = createAsyncThunk("blog/fetchPosts", async () => {
   const querySnapshot = await getDocs(collection(db, "posts"));
@@ -31,9 +32,30 @@ export const fetchPost = createAsyncThunk(
 
 export const createPost = createAsyncThunk(
   "blog/createPost",
-  async (postData: any) => {
-    const docRef = await addDoc(collection(db, "posts"), postData);
-    return { id: docRef.id, ...postData };
+  async ({
+    createAt,
+    title,
+    description,
+    image,
+  }: {
+    createAt: string;
+    title: string;
+    description: string;
+    image: File | null;
+  }) => {
+    let imageUrl = "";
+
+    if (image) {
+      imageUrl = await uploadImage(image);
+    }
+
+    const docRef = await addDoc(collection(db, "posts"), {
+      title,
+      description,
+      createAt,
+      imageUrl,
+    });
+    return { id: docRef.id, title, description, createAt, imageUrl };
   }
 );
 

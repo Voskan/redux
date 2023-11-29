@@ -37,6 +37,15 @@ const PostPage: React.FC = () => {
       ) : (
         <>
           <h1>{post?.title}</h1>
+          {post.imageUrl ? (
+            <div>
+              <img
+                src={post.imageUrl}
+                alt={post.title}
+                style={{ width: "500px" }}
+              />
+            </div>
+          ) : null}
           <p>{post?.description}</p>
         </>
       )}
